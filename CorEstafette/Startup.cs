@@ -26,7 +26,8 @@ namespace CorEstafette
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSignalR();//configure signalR hubs
+            //services.AddSignalR();
+            services.AddSignalR().AddAzureSignalR("Endpoint = https://isabelletestsignalr.service.signalr.net;AccessKey=71cNhuXYx82+nQ79IkHCWTXtTpcqeSd7Lo/O5zYza8M=;Version=1.0;");//configure signalR
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,10 @@ namespace CorEstafette
             app.UseRouting();
 
             app.UseAuthorization();
+            //app.UseAzureSignalR(builder =>
+            //{
+            //    builder.MapHub<TestHub>("test");
+            //});
 
             app.UseEndpoints(endpoints =>
             {
