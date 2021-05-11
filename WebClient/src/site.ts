@@ -21,7 +21,7 @@ let onRequest = function (request: IRequest): Promise<any> {
     li.innerHTML = encodedMsg;
     document.getElementById("messagesList").appendChild(li);
     return new Promise<any>((resolve, reject) => {
-        var requestContent: string = "echo back";
+        var requestContent: string = "echo back " + request.Content;
         resolve(requestContent);
  
     });
